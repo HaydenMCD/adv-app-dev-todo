@@ -11,7 +11,7 @@ export default function AddTodo() {
         if (title !== "") {
             await addDoc(collection(db, "todos"), {
                 title,
-                complete: false,
+                completed: false,
             })
         }
     }

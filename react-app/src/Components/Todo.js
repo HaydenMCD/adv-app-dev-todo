@@ -13,7 +13,7 @@ export default function Todo ({
 
     const handleChange = (e) => {
         e.preventDefault()
-        if (todo.complete === true) {
+        if (todo.completed === true) {
             setNewTitle(todo.title)
         } else {
             todo.title = ""
