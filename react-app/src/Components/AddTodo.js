@@ -20,7 +20,7 @@ export default function AddTodo() {
         <form className="add-item" onSubmit={handleSubmit}>
             <div className="input-container">
                 <input
-                    data-testid="add_item_input"
+                    data-testid="add-item-input"
                     type="text"
                     placeholder="Enter list item"
                     value={title}
