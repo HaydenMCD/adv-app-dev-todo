@@ -17,17 +17,18 @@ export default function AddTodo() {
     }
 
     return (
-        <form className="Add_item" onSubmit={handleSubmit}>
-            <div className="input_container">
+        <form className="add-item" onSubmit={handleSubmit}>
+            <div className="input-container">
                 <input
+                    data-testid="add_item_input"
                     type="text"
                     placeholder="Enter list item"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                 />
             </div>
-            <div className="btn_container">
-                <button>Add item</button>
+            <div className="btn-container">
+                <button data-testid="add-item-button">Add item</button>
             </div>
         </form>
     )

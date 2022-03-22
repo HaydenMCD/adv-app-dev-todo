@@ -51,7 +51,7 @@ function App() {
       <div>
         <AddTodo />
       </div>
-      <div className='todo_container'>
+      <div className='todo-container'>
         {todos.map((todo) => (
           <Todo
             key={todo.id}
