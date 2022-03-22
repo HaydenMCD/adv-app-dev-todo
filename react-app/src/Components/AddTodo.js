@@ -17,7 +17,7 @@ export default function AddTodo() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="Add_item" onSubmit={handleSubmit}>
             <div className="input_container">
                 <input
                     type="text"
