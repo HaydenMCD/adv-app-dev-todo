@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { initializeFirestore,
   enableIndexedDbPersistence,
   CACHE_SIZE_UNLIMITED } from "firebase/firestore"; 
+  import { getAuth } from "firebase/auth"
 
 const firebaseConfig = {
     apiKey: "AIzaSyDFo8Q_jBGKrTaKtd_0zbjjkcx4geB5B0k",
@@ -18,17 +19,19 @@ const firebaseConfig = {
     enablePersistence: true, cacheSizeBytes: CACHE_SIZE_UNLIMITED
   });
 
+const auth = getAuth(app);
+
   enableIndexedDbPersistence(db)
   .catch((err) => {
-      if (err.code == 'failed-precondition') {
+      if (err.code === 'failed-precondition') {
           // Multiple tabs open, persistence can only be enabled
           // in one tab at a a time.
           // ...
-      } else if (err.code == 'unimplemented') {
+      } else if (err.code === 'unimplemented') {
           // The current browser does not support all of the
           // features required to enable persistence
           // ...
       }
   });
 
-  export { db };
+  export { db, auth };

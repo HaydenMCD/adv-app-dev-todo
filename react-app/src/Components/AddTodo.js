@@ -1,15 +1,15 @@
 import React from "react";
 import { db } from "../firebase"
-import { collection, addDoc } from "firebase/firestore";
+import { collection, setDoc, doc } from "firebase/firestore";
 import { async } from "@firebase/util";
 
-export default function AddTodo() {
+export default function AddTodo({user}) {
     const[title, setTitle] = React.useState("")
-
+    const uid = user.uid;
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (title !== "") {
-            await addDoc(collection(db, "todos"), {
+            await setDoc(collection(db, "todos", uid), {
                 title,
                 completed: false,
             })
@@ -21,6 +21,7 @@ export default function AddTodo() {
             <div className="input-container">
                 <input
                     data-testid="add-item-input"
+                    id="input"
                     type="text"
                     placeholder="Enter list item"
                     value={title}
