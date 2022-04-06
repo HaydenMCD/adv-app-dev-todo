@@ -144,3 +144,41 @@ input:focus,
 button:focus {
   outline: none;
 }
+
+
+/** Error page **/
+.error-title {
+  font-size: 10vw;
+  text-align: center;
+  margin-top: 10vh;
+}
+
+.error-sub-title {
+  text-align: center;
+  font-size: 2.5vw;
+  opacity: .5;
+}
+
+.error-text {
+  text-align: center;
+  margin-top: 3vh;
+  opacity: .8;
+  font-size: 1vw;
+}
+
+.btn-container-error {
+  text-align: center;
+}
+.btn-container-error button {
+  background: #91e0f2;
+  color: black;
+  padding: 10px 20px;
+  margin-top: 2vh;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}

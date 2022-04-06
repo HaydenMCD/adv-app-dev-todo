@@ -4,7 +4,6 @@ import Title from "../Components/title";
 import AddTodo from '../Components/AddTodo';
 import Todo from '../Components/Todo';
 import { db, auth } from "../firebase";
-import AnonymousSignIn from "../Components/AnonymousSignIn"
 import {
   collection,
   query,
@@ -18,19 +17,6 @@ import {
   addDoc
 } from "firebase/firestore";
 import { onAuthStateChanged } from 'firebase/auth';
-
-// const addUserCollection = async (user) => {
-//   const colref = await doc(db, 'users', user.uid);
-//   try {
-//     const res = await setDoc(colref, {
-//         uid: user.uid,
-//         name: user.name,
-//         createdAt: serverTimestamp()
-//       })
-//   } catch (error) {
-//     console.log('error') 
-//   }
-// }
 
 function Homepage() {
   const [user, setUser] = useState({
