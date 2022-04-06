@@ -2,7 +2,7 @@ import React from 'react'
 import { signInAnonymously } from "firebase/auth"
 import { auth } from "../firebase"
 
-const AnonymousSignIn = ({user, setUser, addUserCollection}) => {
+const AnonymousSignIn = () => {
     return (
         <div>
             <button onClick={(() => {
@@ -10,9 +10,7 @@ const AnonymousSignIn = ({user, setUser, addUserCollection}) => {
                     .then((user) => {
                         // Signed in..
                         // addUserCollection(user)
-                        setUser({
-                            uid: user.user.uid
-                        })
+                        console.log("signed in")
                     })
                     .catch((error) => {
                         const errorCode = error.code;

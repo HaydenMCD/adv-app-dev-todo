@@ -3,13 +3,12 @@ import { db } from "../firebase"
 import { collection, setDoc, doc } from "firebase/firestore";
 import { async } from "@firebase/util";
 
-export default function AddTodo({user}) {
+export default function AddTodo() {
     const[title, setTitle] = React.useState("")
-    const uid = user.uid;
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (title !== "") {
-            await setDoc(collection(db, "todos", uid), {
+            await setDoc(collection(db, "todos"), {
                 title,
                 completed: false,
             })
@@ -24,7 +23,7 @@ export default function AddTodo({user}) {
                     id="input"
                     type="text"
                     placeholder="Enter list item"
-                    value={title}
+                    //value={title}
                     onChange={(e) => setTitle(e.target.value)}
                 />
             </div>
