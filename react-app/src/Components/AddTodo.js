@@ -23,7 +23,7 @@ export default function AddTodo() {
                     id="input"
                     type="text"
                     placeholder="Enter list item"
-                    //value={title}
+                    value={title}
                     onChange={(e) => setTitle(e.target.value)}
                 />
             </div>
