@@ -2,8 +2,10 @@ import React from 'react';
 import Title from '../Components/title';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import AnonymousSignIn from '../Components/AnonymousSignIn';
+import LogoutButton from '../Components/LogoutButton';
 
-const Login = () => {
+const Login = ({setUser, user}) => {
   return (
     <div className='Login'>
       <div>
@@ -20,9 +22,10 @@ const Login = () => {
           <Button variant="contained">Sign in using facebook</Button>
         </div>
         <div className="anon-login">
-          <Link to='/' style={{ textDecoration: 'none' }}>
-            <Button variant='text'>I don't want to sign in</Button>
-          </Link>
+          <AnonymousSignIn setUser={setUser} user={user} />
+        </div>
+        <div>
+          <LogoutButton />
         </div>
       </div>
     </div>

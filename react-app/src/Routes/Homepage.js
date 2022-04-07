@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Title from "../Components/title";
 import AddTodo from '../Components/AddTodo';
 import Todo from '../Components/Todo';
-import { db, auth } from "../firebase";
+import { db } from "../firebase";
 import {
   collection,
   query,
@@ -12,42 +12,9 @@ import {
   updateDoc,
   deleteDoc,
   QuerySnapshot,
-  serverTimestamp,
-  setDoc,
-  addDoc
 } from "firebase/firestore";
-import { onAuthStateChanged } from 'firebase/auth';
 
-function Homepage() {
-  const [user, setUser] = useState({
-    uid: null,
-    name: '',
-    loginProvider: null,
-    toDoCollection: {},
-  });
-
-  useEffect(() => {
-    if (user) {
-      console.log(user)
-    }
-  }, [user]);
-
-  useEffect(async () => {
-    const unsubscribe = await onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser({
-          uid: user.uid,
-          loginProvider: user.providerId
-        });
-      } else {
-        setUser(null);
-      }
-    });
-    return (() => {
-      unsubscribe();
-    })
-  }, []);
-
+function Homepage({user}) {
 
   const [todos, setTodos] = React.useState([])
   React.useEffect(() => {

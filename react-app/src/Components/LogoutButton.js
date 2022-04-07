@@ -6,7 +6,7 @@ const LogoutButton = () => {
   return (
     <div>
         <button onClick={(() => {
-            signOut(auth).then(() => console.log('user signed out')).catch(err => console.log(err));
+            signOut(auth).then(() => console.log('Logged out')).catch(err => console.log(err));
         })}>Logout</button>
     </div>
   )
