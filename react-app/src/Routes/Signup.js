@@ -1,5 +1,5 @@
 import React from 'react'
-import Title from '../Components/title'
+import Navbar from '../Components/Navbar'
 import SignupForm from '../Components/SignupForm'
 
 const Signup = () => {
@@ -7,7 +7,7 @@ const Signup = () => {
 
     <div className="signup">
       <div>
-        <Title />
+        <Navbar />
       </div>
       <div>
         <SignupForm />

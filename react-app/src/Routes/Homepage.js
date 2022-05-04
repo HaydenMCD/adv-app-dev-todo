@@ -1,7 +1,7 @@
 import React from "react";
-import Title from "../Components/title";
 import AddTodo from '../Components/AddTodo';
 import Todo from '../Components/Todo';
+import Navbar from "../Components/Navbar";
 import { db } from "../firebase";
 import {
   collection,
@@ -45,7 +45,7 @@ function Homepage({user}) {
   return (
     <div className="Homepage">
       <div>
-        <Title />
+        <Navbar />
       </div>
       <div>
         <AddTodo user={user} />

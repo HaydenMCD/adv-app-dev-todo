@@ -1,8 +1,9 @@
 import './App.css';
 import Homepage from './Routes/Homepage';
 import Login from './Routes/Login';
-import { routes } from './Routes/routePaths'
 import NotFound from './Routes/NotFound';
+import Groups from './Routes/Groups';
+import { routes } from './Routes/routePaths'
 import { Route, Routes, BrowserRouter, renderMatches } from "react-router-dom";
 import Signup from './Routes/Signup';
 import { useState } from 'react';
@@ -14,7 +15,8 @@ import { async } from '@firebase/util';
 const {
   HOME,
   LOGIN,
-  SIGNUP
+  SIGNUP,
+  GROUPS
 } = routes;
 
 const App = () => {
@@ -62,6 +64,7 @@ useEffect(() => {
           <Route path={HOME} element={<Homepage user={user} />} />
           <Route path={LOGIN} element={<Login seterror={setUser} user={user} />} />
           <Route path={SIGNUP} element={<Signup seterror={setUser} user={user} />} />
+          <Route path={GROUPS} element={<Groups seterror={setUser} user={user} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

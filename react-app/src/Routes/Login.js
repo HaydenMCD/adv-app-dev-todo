@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from '../Components/title';
+import Navbar from '../Components/Navbar';
 import Button from '@mui/material/Button';
 import AnonymousSignIn from '../Components/AnonymousSignIn';
 import LogoutButton from '../Components/LogoutButton';
@@ -9,7 +9,7 @@ const Login = ({setUser, user}) => {
   return (
     <div className='Login'>
       <div>
-        <Title />
+        <Navbar />
       </div>
       <div className='login-container'>
         <div className='email-login'>

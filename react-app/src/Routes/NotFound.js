@@ -1,10 +1,14 @@
 import React from 'react';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import Navbar from '../Components/Navbar';
 
 const NotFound = () => {
   return (
     <div className="NotFound" >
+        <div>
+        <Navbar />
+      </div>
       <div className='error-title'>
         404
       </div>
