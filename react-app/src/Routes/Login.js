@@ -3,6 +3,7 @@ import Title from '../Components/title';
 import Button from '@mui/material/Button';
 import AnonymousSignIn from '../Components/AnonymousSignIn';
 import LogoutButton from '../Components/LogoutButton';
+import EmailLogin from '../Components/EmailLogin';
 
 const Login = ({setUser, user}) => {
   return (
@@ -12,7 +13,7 @@ const Login = ({setUser, user}) => {
       </div>
       <div className='login-container'>
         <div className='email-login'>
-          <Button variant="contained">Sign in using email and password</Button>
+          <EmailLogin setUser={setUser} user={user}/>
         </div>
         <div className='gmail-login'>
           <Button variant="contained">Sign in using gmail</Button>

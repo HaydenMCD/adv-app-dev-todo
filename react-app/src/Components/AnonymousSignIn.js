@@ -21,23 +21,11 @@ const AnonymousSignIn = ({ setUser, user }) => {
                     signedIn: true,
                     isAnonymous: user.user.isAnonymous,
                     createdAt: serverTimestamp()
-                }).then((data) => {
-                        const ref2 = collection(db, data.path, '/toDos');
-                        const res2 = addDoc(ref2, {
-                            completed: false,
-                            title: '',
-                            description: '',
-                            createdAt: serverTimestamp(),
-                            updatedAt: serverTimestamp()
-                        })
-                            .then(data => {
-                                console.log(data);
-                            })
-                            .catch(err => console.log(err));
+                })
+                    .then(data => {
+                        console.log(data);
                     })
-                    .catch(err => {
-                        console.log(err)
-                    });
+                    .catch(err => console.log(err));
             })
             .then(() => {
                 navigate('/');
