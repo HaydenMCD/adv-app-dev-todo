@@ -22,17 +22,9 @@ const {
 const App = () => {
   const [authError, setAuthError] = useState(false);
   const [authComplete, setAuthComplete] = useState(false);
-  const [user, setUser] = useState({
-    uid: null,
-    name: '',
-    email: '',
-    loginProvider: null,
-    signedIn: false,
-    isAnonymous: false,
-    toDoCollection: [],
-  });
+  const [user, setUser] = useState(null);
 useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth, async (user) => {
+  const unsubscribe = onAuthStateChanged(auth, user => {
     if (user) {
       setUser({
         uid: user.uid,
@@ -44,8 +36,8 @@ useEffect(() => {
     else {
       setUser(null);
   }})
-  return unsubscribe()
-}, [])
+  return (() => unsubscribe())
+}, [auth])
 
   //   setAuthError(false);
   //   setAuthComplete(false);

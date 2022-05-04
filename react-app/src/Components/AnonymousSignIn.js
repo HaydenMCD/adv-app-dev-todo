@@ -1,20 +1,17 @@
 import React, { useEffect } from 'react'
-import { getAuth, signInAnonymously } from "firebase/auth"
-import { auth } from "../firebase"
+import { signInAnonymously } from "firebase/auth"
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
-import { collection, doc, setDoc, addDoc, serverTimestamp } from "firebase/firestore";
-import { db } from '../firebase';
+import { doc, setDoc, serverTimestamp, addDoc, collection } from "firebase/firestore";
+import { db, auth } from '../firebase';
+import { v4 } from 'uuid'
 
 const AnonymousSignIn = ({ setUser, user }) => {
     const navigate = useNavigate();
     const login = async () => {
-        await signInAnonymously(auth)
-            .then(async (user) => {
-                //const createUserRoute = collection(db, 'users/', getAuth().currentUser.uid)
-                // const createUser = await addDoc(createUser)
-                const colRef = collection(db, 'users');
-                const addInfo = await addDoc(colRef, {
+        const res1 = await signInAnonymously(auth)
+            .then((user) => {
+                setDoc(doc(db, `users/${auth.currentUser.uid}`), {
                     uid: user.user.uid,
                     name: '',
                     loginProvider: user.providerId,
@@ -24,19 +21,18 @@ const AnonymousSignIn = ({ setUser, user }) => {
                     isAnonymous: user.user.isAnonymous,
                     createdAt: serverTimestamp()
                 })
-                .then(data => {
-                        console.log(data);
-                    })
-                    .catch(err => console.log(err));
-            })
-            .then(() => {
-                navigate('/');
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-            })
+            });
+        const rando = v4();
+        const res2 = setDoc(doc(db, `users/${auth.currentUser.uid}/todos`, rando), {
+            title: 'my to do',
+            completed: false,
+            createdAt: serverTimestamp()
+        })
+
+        // add a redirect to homepage
+        navigate("/")
     }
+
     return (
         <div>
             <Button variant='text' onClick={login}>I don't want to sign in</Button>
