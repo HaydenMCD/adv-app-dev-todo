@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { signInAnonymously } from "firebase/auth"
+import { getAuth, signInAnonymously } from "firebase/auth"
 import { auth } from "../firebase"
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
@@ -11,7 +11,7 @@ const AnonymousSignIn = ({ setUser, user }) => {
     const login = async () => {
         await signInAnonymously(auth)
             .then(async (user) => {
-                const colRef = collection(db, 'users');
+                const colRef = collection(db, 'users', getAuth().currentUser.uid);
                 const res = await addDoc(colRef, {
                     uid: user.user.uid,
                     name: '',

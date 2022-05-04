@@ -1,6 +1,6 @@
 import React from "react";
 import { db } from "../firebase"
-import { collection, setDoc, doc } from "firebase/firestore";
+import { collection, addDoc, doc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 export default function AddTodo() {
@@ -8,10 +8,11 @@ export default function AddTodo() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (title !== "") {
-            await setDoc(collection(db, "users/", getAuth().currentUser.uid, "todos"), {
-                title,
+            await addDoc(collection(db, "users/", getAuth().currentUser.uid, "todos"), {
+                title: title,
                 completed: false,
             })
+            setTitle("")
         }
     }
 

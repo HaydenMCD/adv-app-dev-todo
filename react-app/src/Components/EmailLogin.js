@@ -9,8 +9,7 @@ import { db } from '../firebase';
 const EmailLogin = ({ setUser, user }) => {
     const navigate = useNavigate();
     const login = async () => {
-        await signInWithEmailAndPassword(auth, email, password)
-        
+        await signInWithEmailAndPassword(auth)
     }
     return (
         <div>

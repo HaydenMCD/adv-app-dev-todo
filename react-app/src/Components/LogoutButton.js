@@ -1,12 +1,12 @@
 import React from 'react'
 import { auth } from '../firebase'
-import { signOut } from "firebase/auth"
+import { getAuth, signOut } from "firebase/auth"
 
 const LogoutButton = () => {
   return (
     <div>
         <button onClick={(() => {
-            signOut(auth).then(() => console.log('Logged out')).catch(err => console.log(err));
+            signOut(auth).then(() => console.log(getAuth().currentUser.uid)).catch(err => console.log(err));
         })}>Logout</button>
     </div>
   )
