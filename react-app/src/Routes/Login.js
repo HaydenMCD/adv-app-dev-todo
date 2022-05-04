@@ -1,7 +1,6 @@
 import React from 'react';
 import Title from '../Components/title';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
 import AnonymousSignIn from '../Components/AnonymousSignIn';
 import LogoutButton from '../Components/LogoutButton';
 
