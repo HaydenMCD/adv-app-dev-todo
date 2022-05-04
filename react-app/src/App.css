@@ -236,3 +236,25 @@ button:focus {
 .anon-login {
   padding: 3vh 0 2vh;
 }
+
+.signupForm h2 {
+  text-align: center;
+  font-size: 2.5vw;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.signupDiv {
+  padding-top: 1.5vh;
+  max-width: 85%;
+  margin: auto;
+  font-family: "Poppins", sans-serif;
+  font-size: 1vw;
+}
+
+.signupButtonDiv {
+  padding-top: 3vh;
+  padding-bottom: 1.5vh;
+  max-width: 50%;
+  margin: auto;
+}

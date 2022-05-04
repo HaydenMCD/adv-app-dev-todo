@@ -60,7 +60,6 @@ useEffect(() => {
       <BrowserRouter>
         <Routes>
           <Route path={HOME} element={<Homepage user={user} />} />
-          <Route index path={LOGIN} element={<Login />} />
           <Route path={LOGIN} element={<Login seterror={setUser} user={user} />} />
           <Route path={SIGNUP} element={<Signup seterror={setUser} user={user} />} />
           <Route path="*" element={<NotFound />} />

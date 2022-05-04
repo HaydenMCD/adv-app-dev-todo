@@ -11,8 +11,10 @@ const AnonymousSignIn = ({ setUser, user }) => {
     const login = async () => {
         await signInAnonymously(auth)
             .then(async (user) => {
-                const colRef = collection(db, 'users', getAuth().currentUser.uid);
-                const res = await addDoc(colRef, {
+                //const createUserRoute = collection(db, 'users/', getAuth().currentUser.uid)
+                // const createUser = await addDoc(createUser)
+                const colRef = collection(db, 'users');
+                const addInfo = await addDoc(colRef, {
                     uid: user.user.uid,
                     name: '',
                     loginProvider: user.providerId,
@@ -22,7 +24,7 @@ const AnonymousSignIn = ({ setUser, user }) => {
                     isAnonymous: user.user.isAnonymous,
                     createdAt: serverTimestamp()
                 })
-                    .then(data => {
+                .then(data => {
                         console.log(data);
                     })
                     .catch(err => console.log(err));
