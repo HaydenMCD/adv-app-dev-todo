@@ -6,9 +6,9 @@ import { Button } from 'react-bootstrap';
 const LogoutButton = () => {
   return (
     <div>
-        <Button variant="Light" onClick={(() => {
-            signOut(auth).then(() => console.log(auth)).catch(err => console.log(err));
-        })}>Logout</Button>
+      <Button variant="Light" onClick={(() => {
+        signOut(auth).then(() => console.log(auth)).catch(err => console.log(err));
+      })}>Logout</Button>
     </div>
   )
 }

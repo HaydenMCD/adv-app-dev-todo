@@ -2,10 +2,9 @@ import React from 'react';
 import NavbarComponent from '../Components/NavbarComponent';
 import Button from '@mui/material/Button';
 import AnonymousSignIn from '../Components/AnonymousSignIn';
-import LogoutButton from '../Components/LogoutButton';
 import EmailLogin from '../Components/EmailLogin';
 
-const Login = ({setUser, user}) => {
+const Login = ({ setUser, user }) => {
   return (
     <div className='Login'>
       <div>
@@ -13,7 +12,7 @@ const Login = ({setUser, user}) => {
       </div>
       <div className='login-container'>
         <div className='email-login'>
-          <EmailLogin setUser={setUser} user={user}/>
+          <EmailLogin setUser={setUser} user={user} />
         </div>
         <div className='gmail-login'>
           <Button variant="contained">Sign in using gmail</Button>
@@ -23,9 +22,6 @@ const Login = ({setUser, user}) => {
         </div>
         <div className="anon-login">
           <AnonymousSignIn setUser={setUser} user={user} />
-        </div>
-        <div>
-          <LogoutButton />
         </div>
       </div>
     </div>

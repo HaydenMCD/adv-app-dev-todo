@@ -6,7 +6,7 @@ import NavbarComponent from '../Components/NavbarComponent';
 const NotFound = () => {
   return (
     <div className="NotFound" >
-        <div>
+      <div>
         <NavbarComponent />
       </div>
       <div className='error-title'>
@@ -20,8 +20,8 @@ const NotFound = () => {
       </div>
       <div className='btn-container-error'>
         <Link to='/' style={{ textDecoration: 'none' }}>
-      <Button className='return-home-btn' variant="contained">Return Home</Button>
-      </Link>
+          <Button className='return-home-btn' variant="contained">Return Home</Button>
+        </Link>
       </div>
     </div>
   );

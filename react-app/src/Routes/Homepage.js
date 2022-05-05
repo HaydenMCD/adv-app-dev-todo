@@ -10,14 +10,13 @@ import {
   doc,
   updateDoc,
   deleteDoc,
-  QuerySnapshot,
 } from "firebase/firestore";
 
-function Homepage({user}) {
+function Homepage({ user }) {
 
   const [todos, setTodos] = React.useState([])
   React.useEffect(() => {
-    if(user) {
+    if (user) {
       const q = query(collection(db, `users/${auth.currentUser.uid}/todos`))
       const unsub = onSnapshot(q, (QuerySnapshot) => {
         let todosArray = []
@@ -49,7 +48,7 @@ function Homepage({user}) {
   return (
     <div className="Homepage">
       <div>
-      <NavbarComponent />
+        <NavbarComponent />
       </div>
       <div>
         <AddTodo user={user} />

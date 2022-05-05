@@ -3,15 +3,13 @@ import Homepage from './Routes/Homepage';
 import Login from './Routes/Login';
 import NotFound from './Routes/NotFound';
 import Groups from './Routes/Groups';
-import { routes } from './Routes/routePaths'
-import { Route, Routes, BrowserRouter, renderMatches } from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Signup from './Routes/Signup';
 import { useState } from 'react';
-import { auth, db } from './firebase';
+import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
-import { collection, addDoc } from 'firebase/firestore';
 import { useEffect } from 'react';
-import { async } from '@firebase/util';
+import { routes } from './Routes/routePaths'
 const {
   HOME,
   LOGIN,
@@ -20,34 +18,23 @@ const {
 } = routes;
 
 const App = () => {
-  const [authError, setAuthError] = useState(false);
-  const [authComplete, setAuthComplete] = useState(false);
   const [user, setUser] = useState(null);
-useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth, user => {
-    if (user) {
-      setUser({
-        uid: user.uid,
-        email: user.email,
-        name: '',
-        loginProvider: user.providerId
-      })
-    }
-    else {
-      setUser(null);
-  }})
-  return (() => unsubscribe())
-}, [auth])
-
-  //   setAuthError(false);
-  //   setAuthComplete(false);
-  // }, 
-  // (error) => {
-  //     setAuthError(error)
-  // }, 
-  // (complete) => {
-  //    setAuthComplete(true)
-  // });
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, user => {
+      if (user) {
+        setUser({
+          uid: user.uid,
+          email: user.email,
+          name: '',
+          loginProvider: user.providerId
+        })
+      }
+      else {
+        setUser(null);
+      }
+    })
+    return (() => unsubscribe())
+  }, [auth])
 
   return (
     <div className='App'>
