@@ -1,7 +1,7 @@
 import React from "react";
 import AddTodo from '../Components/AddTodo';
 import Todo from '../Components/Todo';
-import Navbar from "../Components/Navbar";
+import NavbarComponent from "../Components/NavbarComponent";
 import { db, auth } from "../firebase";
 import {
   collection,
@@ -49,7 +49,7 @@ function Homepage({user}) {
   return (
     <div className="Homepage">
       <div>
-        <Navbar />
+      <NavbarComponent />
       </div>
       <div>
         <AddTodo user={user} />
