@@ -40,10 +40,12 @@ const App = () => {
     <div className='App'>
       <BrowserRouter>
         <Routes>
-          <Route path={HOME} element={<Homepage user={user} />} />
-          <Route path={LOGIN} element={<Login seterror={setUser} user={user} />} />
-          <Route path={SIGNUP} element={<Signup seterror={setUser} user={user} />} />
-          <Route path={GROUPS} element={<Groups seterror={setUser} user={user} />} />
+            <Route path={HOME} element={<Homepage user={user} />} />
+            <Route path={GROUPS} element={<Groups user={user} />} />
+
+          <Route path={LOGIN} element={<Login user={user} />} />
+          <Route path={SIGNUP} element={<Signup user={user} />} />
+          
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

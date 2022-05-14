@@ -3,6 +3,7 @@ import AddTodo from '../Components/AddTodo';
 import Todo from '../Components/Todo';
 import NavbarComponent from "../Components/NavbarComponent";
 import { db, auth } from "../firebase";
+import { Navigate } from 'react-router-dom';
 import {
   collection,
   query,
@@ -45,10 +46,14 @@ function Homepage({ user }) {
     }
   };
 
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
+
   return (
     <div className="Homepage">
       <div>
-        <NavbarComponent />
+        <NavbarComponent user={user} />
       </div>
       <div>
         <AddTodo user={user} />

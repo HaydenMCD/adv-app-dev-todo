@@ -1,7 +1,12 @@
 import React from 'react'
 import NavbarComponent from '../Components/NavbarComponent'
+import { Navigate } from 'react-router-dom';
 
-const Groups = () => {
+const Groups = ({user}) => {
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
+
   return (
     <>
       <div>

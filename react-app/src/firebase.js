@@ -31,4 +31,4 @@ enableIndexedDbPersistence(db)
 
 const auth = getAuth(app);
 
-  export { db, auth };
+export { db, auth };
